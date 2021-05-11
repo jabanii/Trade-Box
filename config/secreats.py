@@ -1,0 +1,8 @@
+# Parameters for Alpha vantage API connection
+ALPHA_API_KEY = 'YOUR API KEY'
+
+# Parameters for Td Ameritrade API connection
+CONSUMER_KEY = 'YOUR CONSUMER KEY'
+REDIRECT_URI = 'YOUR REDIRECT URI'
+JSON_PATH = 'JSON PATH DIRECTORY'
+TD_ACCOUNT = 'TD ACCOUNT NUMBER'
