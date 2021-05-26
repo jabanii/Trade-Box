@@ -5,11 +5,12 @@ from sklearn.svm import SVR
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
+import xlrd
 import Data as ds
 # dependent and independent data arrays
 dates = []
 prices = []
-
+xl_file = 'AMCoutput.xlsx'
 
 def get_data(filename):
     with open(filename, 'r') as csvfile:
@@ -22,8 +23,14 @@ def get_data(filename):
             prices.append(float(row[4]))
         return
 
+def get_data_excel():
+    df = pd.read_excel(xl_file, sheet_name=None)
+    for row in df:
+        dates.append(int(row[0]))
+        prices.append(float(row[4]))
+    return
+
 # .split('-')[0]
-# gaurav anex, a-17, saraswat bank, near lajja show room. ground floor.
 
 def predict_prices_svm(dates, prices, x):
     dates = np.reshape(dates, (len(dates), 1))
@@ -177,7 +184,7 @@ def predict_price_LSTM(data):
 
 
 
-get_data('aapl.csv')
+get_data_excel()
 predicted_price = predict_prices_svm(dates, prices, 26)
 print(predicted_price)
 
