@@ -39,6 +39,3 @@ def plot_rsi_vs_close(symbol, interval, period):
     total_dataframe.plot()
     plt.show()
 
-# put in functionality
-def generate_signal(indicator, symbol):
-    pass
