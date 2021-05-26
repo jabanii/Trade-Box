@@ -184,8 +184,8 @@ def predict_price_LSTM(data):
 
 
 
-get_data_excel()
-predicted_price = predict_prices_svm(dates, prices, 26)
-print(predicted_price)
+    #get_data_excel()
+    #predicted_price = predict_prices_svm(dates, prices, 26)
+    #print(predicted_price)
 
 

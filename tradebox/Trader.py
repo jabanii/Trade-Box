@@ -2,6 +2,8 @@ from tradebox import Data as dd
 from tradebox import Machine_learning as ml
 # from tradebox import indicators as indicator
 
+dates = ml.dates
+prices = ml.prices
 
 # get active stocks
 stocks = dd.get_active_stocks()
@@ -18,9 +20,8 @@ dd.alert_user(0.0004, data)
 # ML
 # get SVM prediction
 main_data = ml.get_data_excel()
-#predicted_prices =  ml.predict_prices_svm(dates, prices, 26)
-
-print(main_data.head(8))
+predicted_prices =  ml.predict_prices_svm(dates, prices, 26)
+print(predicted_prices)
 
 
 # Plot RSI
