@@ -10,7 +10,7 @@ import Data as ds
 # dependent and independent data arrays
 dates = []
 prices = []
-xl_file = 'AMCoutput.xlsx'
+xl_file = '../datasets/AMCoutput.xlsx'
 
 def get_data(filename):
     with open(filename, 'r') as csvfile:
@@ -52,11 +52,10 @@ def predict_prices_svm(dates, prices, x):
     return svr_rbf.predict(x)[0], svr_lin.predict(x)[0], svr_poly.predict(x)[0]
 
 
-def predict_price_LSTM(data):
+def predict_price_LSTM():
     # get data
-    symbols = 'MD'
-    #stock_data = ds.get_stock_data(sym=symbols, interval='1min', typ='daily')
-    stock_data=data
+    symbols = input("what stock would you like to predict? \n")
+    stock_data = ds.get_stock_data(sym=symbols, interval='1min', typ='daily')
 
     # reverse rows
     stock_data = stock_data.loc[::-1, :]
@@ -70,8 +69,8 @@ def predict_price_LSTM(data):
 
     # get info of data
     # all data is float so no need to homoginise it
-    info = stock_data.info()
-    print(info)
+    #info = stock_data.info()
+    #print(info)
 
     # get 7 day rolling mean(moving average)
     # rolling_mean = stock_data.rolling(7).mean().head(20)
@@ -189,3 +188,4 @@ def predict_price_LSTM(data):
     #print(predicted_price)
 
 
+predict_price_LSTM()
